@@ -32,14 +32,14 @@ No error has ocurred.
 
 =item ETMPFAIL
 
-A 'temporary' failure has ocurred. This usually means that the server which was
+A I<temporary> failure has ocurred. This usually means that the server which was
 the source or target of the operation (for example, a key store) was unreachable
 or unresponsive.
 
 =item KEY_EEXISTS
 
 An operation which required the key not to already exist was attempted, but the
-key was found to have already existed
+key was found to have already existed.
 
 =item KEY_ENOENT
 
@@ -56,7 +56,7 @@ An operation was sent to the wrong server. The server which received the operati
 does not host the key.
 
 This error is common during failover and adding a new node to the cluster and is
-generally transient
+generally transient.
 
 =back
 

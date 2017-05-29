@@ -124,7 +124,7 @@ __END__
 
 =head1 NAME
 
-Couchbase::Document - Object represnting an item in the cluster.
+Couchbase::Document - Object representing an item in the cluster
 
 
 =head1 SYNOPSIS
@@ -138,7 +138,7 @@ Couchbase::Document - Object represnting an item in the cluster.
 A document is the basic unit of the API and corresponds with an item as it is
 stored in the cluster. A newly created document exists only locally in the
 application, and must be submitted to the cluster via one of the methods in
-L<Couchbase::Bucket>
+L<Couchbase::Bucket>.
 
 
 =head2 CONSTRUCTORS
@@ -164,7 +164,7 @@ below.
 
 =head3 id()
 
-Gets/Sets the ID for this document. The ID should only be set during creation
+Gets or sets the ID for this document. The ID should only be set during creation
 of the document object.
 
 
@@ -184,7 +184,7 @@ field will be updated with the value stored on the server, if successful.
 =head3 format($format)
 
 
-Get and set the I<storage format> for the item's value on the cluster. Typical
+Get or set the I<storage format> for the item's value on the cluster. Typical
 applications will not need to modify this value, but it may be desirable to
 use a special format for performance reasons, or to store values which are
 not representable in the default format.
@@ -236,7 +236,7 @@ C<utf8> flag is set on the scalar.
 
 Specify the expiration value to be associated with the document. This
 value is only read from and never written to, and is used to determine
-the "Time to live" for the document. See L<Couchbase::Document/"touch($doc)">
+the "Time to live" for the document. See L<Couchbase::Document/"touch($doc)">.
 
 
 =head2 ERROR CHECKING
@@ -261,13 +261,13 @@ Some of the error codes are documented in L<Couchbase::Constants>.
 =head3 errstr()
 
 Returns a textual description of the error. This should be used for
-informational purposes only
+informational purposes only.
 
 
 =head3 is_not_found()
 
 Returns true if the last operation failed because the document did not
-exist on the cluster
+exist on the cluster.
 
 
 =head3 is_cas_mismatch()

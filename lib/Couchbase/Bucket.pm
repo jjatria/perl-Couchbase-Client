@@ -284,7 +284,7 @@ Couchbase::Bucket - Couchbase Cluster data access
 Couchbase::Bucket is the main module for L<Couchbase> and represents a data
 connection to the cluster.
 
-The usage model revolves around an L<Couchbase::Document> which is updated
+The usage model revolves around a L<Couchbase::Document> which is updated
 for each operation. Normally you will create a L<Couchbase::Document> and
 populate it with the relevant fields for the operation, and then perform
 the operation itself. When the operation has been completed the relevant
@@ -331,7 +331,7 @@ to the C<default> bucket.
 There are several options which can modify connection and general settings for the
 newly created bucket object. Some of these may be modifiable via L<Couchbase::Settings>
 (returned via the C<settings()> method) as well. This list only mentions those
-settings which are specific to the initial connection
+settings which are specific to the initial connection.
 
 
 =over
@@ -390,7 +390,7 @@ not be made.
 =head2 DATA ACCESS
 
 
-Data access methods operate on an L<Couchbase::Document> object. When the operation
+Data access methods operate on a L<Couchbase::Document> object. When the operation
 has completed, its status is stored in the document's C<errnum> field (you can also
 use the C<is_ok> method to check if no errors occurred).
 
@@ -400,7 +400,7 @@ use the C<is_ok> method to check if no errors occurred).
 =head3 get_and_touch($doc)
 
 
-Retrieve a document from the cluster. C<$doc> is an L<Couchbase::Document>. If the
+Retrieve a document from the cluster. C<$doc> is a L<Couchbase::Document>. If the
 operation is successful, the value of the item will be accessible via its C<value>
 field.
 
@@ -470,7 +470,7 @@ integration with other optional functionality of the cluster (such as views and
 N1QL queries). You may also store items in other formats which may then be
 transparently serialized and deserialized as needed.
 
-To specify the storage format for a document, specify the `format` setting
+To specify the storage format for a document, specify the C<format> setting
 in the L<Couchbase::Document> object, like so:
 
     use Couchbase::Document;
@@ -621,8 +621,8 @@ The options are:
 
 =item C<delta>
 
-the amount by which the current value should be modified. If the value for this option
-is I<negative> then the counter will be decremented
+The amount by which the current value should be modified. If the value for this option
+is I<negative> then the counter will be decremented.
 
 
 =item C<initial>
@@ -681,7 +681,7 @@ wish to do is avoid race conditions when modifying data.
 
 This functions similarly to L<get>, and accepts an additional
 option, C<lock_duration>. If the item is already locked, the server will
-return a C<COUCHBASE_ETMPFAIL> (See L<Couchbase::Constants>).
+return a C<COUCHBASE_ETMPFAIL> (see L<Couchbase::Constants>).
 
 The item is unlocked by either explicitly calling L<unlock> (using the
 I<same> L<Couchbase::Document> object passed to this method), or by
@@ -700,12 +700,12 @@ Unlocking can be done implicitly:
     $cb->replace($doc); # Implicitly unlock
 
 
-Or explicitly
+Or explicitly:
 
     $cb->unlock($doc);
 
 
-Locking an item twice will fail
+Locking an item twice will fail:
 
     $cb->get_and_lock($doc);
     $cb->get_and_lock($doc); # Failure!
@@ -713,7 +713,7 @@ Locking an item twice will fail
 
 
 Trying to modify an item without using the existing document object
-will fail
+will fail:
 
     $cb->get_and_lock($doc);
     my $newdoc = Couchbase::Document->new($doc->id, $doc->value);
@@ -722,7 +722,7 @@ will fail
 
 
 Unlocking a non-locked item (or a different L<Couchbase::Document> object)
-will fail
+will fail:
 
     $cb->unlock($doc); # OK
     $cb->
@@ -746,7 +746,7 @@ associating commands with the conext, and waiting for the
 commands to complete.
 
 
-To create a new context, use the C<batch> method
+To create a new context, use the C<batch> method.
 
 
 =head3 batch()
@@ -840,8 +840,8 @@ placeholders).
 The C<queryopts> is a set of other modifiers for the query. Most of these
 are sent to the server. One special parameter is the C<_host> parameter, which
 points to a standalone instance of the N1QL Developer Preview installation;
-a temporary necesity for pre-release versions. Using of the C<_host> paramter
-will be removed once Couchbase Server is available (in release or pre-release)
+a temporary necessity for pre-release versions. Using of the C<_host> parameter
+will be removed once the Couchbase server is available (in release or pre-release)
 with an integrated N1QL process.
 
 
@@ -870,7 +870,7 @@ dataset into RAM.
 
 Both the C<view_slurp> and C<view_iterator> return L<Couchbase::View::Handle>
 objects. This has been changed from previous versions which returned a
-C<Couchbase::View::HandleInfo> object (Though the APIs remain the same).
+C<Couchbase::View::HandleInfo> object (though the APIs remain the same).
 
 
 =head3 view_slurp("design/view", %options)
@@ -937,7 +937,7 @@ details about the operation.
         }
     }
 
-As of version 2.0.3, this method is implemented as a wrapper atop C<view_iterator>
+As of version 2.0.3, this method is implemented as a wrapper atop C<view_iterator>.
 
 
 =head3 view_iterator("design/view", %options)
@@ -978,7 +978,7 @@ B<Correct>
 =head2 INFORMATIONAL METHODS
 
 These methods return various sorts of into about the cluster or specific
-items
+items.
 
 
 =head3 stats()

@@ -113,10 +113,10 @@ can be found in the tests, which are actually in C<lib/Couchbase/Test>.
 =head3 RELATION TO L<Couchbase::Client>
 
 This module B<replaces> the older L<Couchbase::Client> module. Development
-on the latter has ceased, ans it is no longer maintained. It is maintained
+on the latter has ceased, and it is no longer maintained. It is maintained
 on CPAN purely so existing code using the module continues to function.
 
-This module represents a complete rewrite of the older module
+This module represents a complete rewrite of the older module.
 
 
 =head3 SUPPORT

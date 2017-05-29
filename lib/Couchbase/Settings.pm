@@ -133,7 +133,7 @@ The following contains a list of setting keys and their accepted values:
 =item C<operation_timeout>
 
 The default timeout for the library when trying to perform simple document operations.
-This accepts a timeout value in seconds (fractional seconds are also allows)
+This accepts a timeout value in seconds (fractional seconds are also allowed)
 
 
 =item C<view_timeout>
